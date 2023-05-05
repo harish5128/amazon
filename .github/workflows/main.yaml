@@ -1,0 +1,12 @@
+name: must run on custom runner
+
+on:
+  push:
+    
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - run: echo 'hello from new runner'
+      - run: echo $HOSTNAME
+      - run: echo $IP_ADDRESS
