@@ -9,3 +9,4 @@ jobs:
     steps:
       - run: echo 'hello from runner'
       - run: echo $HOSTNAME
+      - run: echo $IPADRESS
