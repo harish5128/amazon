@@ -1,4 +1,4 @@
-name: must run on the custom runner
+name: must run on the runner
 
 on: push
 
