@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: read
       pages: write
@@ -19,34 +19,4 @@ jobs:
           node-version: 16
           cache: "yarn"
           cache-dependency-path: package.json
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.DEV_AZURE_CREDENTIALS }}
-          node-version: 16
-          cache: "yarn"
-          cache-dependency-path: package.json
-
-      - name: Build
-        run: |
-          mv ./envs/dev-azure.env .env
-          yarn && CI=true
-          export NODE_OPTIONS="--max-old-space-size=5000"
-          yarn build
-          rm .env
-
-      - name: Upload to blob storage
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az storage blob upload-batch --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --overwrite --auth-mode key -d '$web' -s ./build
-      - name: Purge CDN endpoint
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az cdn endpoint purge --content-paths  "/*" --profile-name ${{ secrets.CDN_PROFILE_NAME }} --name ${{ secrets.CDN_ENDPOINT }} --resource-group ${{ secrets.DEV_RESOURCE_GROUP}}
-
-      # Azure logout
-      - name: logout
-        run: |
-          az logout
-        if: always()
+     
