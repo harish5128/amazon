@@ -5,7 +5,6 @@ on:
     
 jobs:
   build:
-    runs-on: linux
     steps:
       - run: echo 'hello from new runner'
       - run: echo $HOSTNAME
