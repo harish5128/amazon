@@ -1,0 +1,9 @@
+name: must run on the custom runner
+
+on: push
+
+jobs:
+  init:
+    rund-on: self-hosted
+    steps:
+      - run: echo 'second file in the runner'
