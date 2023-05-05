@@ -1,9 +1,0 @@
-name: must run on the runner
-
-on: push
-
-jobs:
-  init:
-    runs-on: self-hosted
-    steps:
-      - run: echo 'second file in the runner'
