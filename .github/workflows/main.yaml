@@ -5,7 +5,12 @@ on:
     
 jobs:
   build:
+    runs-on: self-hosted
     steps:
       - run: echo 'hello from new runner'
       - run: echo $HOSTNAME
-      - run: echo $IP_ADDRESS
+      - run: echo 'runnertestbranch'
+      
+      
+      
+      
