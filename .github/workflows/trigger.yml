@@ -1,6 +1,10 @@
 name: Trigger Specific Workflow
 
-on:
+on: 
+  pull_request:
+    types:
+      - opened
+
   repository_dispatch:
     types:
       - trigger-specific-workflow-event
