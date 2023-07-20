@@ -17,5 +17,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.ACTIONS_KEY }}
-          repository: <harish5128>/<custom-runner>
+          repository: <007harish5128>/<custom-runner>
           event-type: custom-workflow-event 
